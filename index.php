@@ -108,33 +108,67 @@ echo 'Status sessione: ' . $sessionStatus . '<br>'; */
 
 
 //$ Salvare le sessioni altrove
-$sessionPath = $_SERVER['DOCUMENT_ROOT'] . '/Sessions';
+/* $sessionPath = $_SERVER['DOCUMENT_ROOT'] . '/Sessions';
 if (!file_exists($sessionPath)) {
     mkdir($sessionPath, 0700);
 }
 session_save_path($sessionPath);
 session_start();
 echo '<b>Nuovo percorso sessione: </b> ' . session_save_path() . '<br>';
-echo '<b>ID sessione: </b>' . session_id() . '<br>';
+echo '<b>ID sessione: </b>' . session_id() . '<br>'; */
 
 
 
 //$ Terminare le sessioni
 
-/* session_start(); // Avvia una sessione
-$_SESSION['username'] = 'Ruma'; // Imposta una variabile di sessione */
+//* session_abort()
+/* session_start();
+$_SESSION['username'] = 'Ruma';
+echo  $_SESSION['username'] . '<br>';
+echo session_status() . ' ';
+
+session_abort();
+echo session_status() . ' ';
+echo $_SESSION['username'];
+ */
+
+//* session_commit()
+/* session_start();
+$_SESSION['username'] = 'Alister';
+echo "Session status: ";
+echo session_status() == PHP_SESSION_ACTIVE ? 'Active' : (session_status() == PHP_SESSION_NONE ? 'None' : 'Disabled');
+echo "<br>Username: " . $_SESSION['username'] . "<br><br>";
+
+session_commit();
+$_SESSION['username'] = 'Adrian';
+
+echo "Session status after session_commit(): ";
+echo session_status() == PHP_SESSION_ACTIVE ? 'Active' : (session_status() == PHP_SESSION_NONE ? 'None' : 'Disabled');
+echo "<br>Username after session_commit(): " . $_SESSION['username'] . "<br><br>"; */
+
+// Sessione riattivata
+/* session_start();
+echo "Session status after session_start(): ";
+echo session_status() == PHP_SESSION_ACTIVE ? 'Active' : (session_status() == PHP_SESSION_NONE ? 'None' : 'Disabled');
+echo "<br>Username after session_start(): " . $_SESSION['username'] . "<br><br>"; */
+
+
 
 //* session_unset()
-/* session_unset(); // Libera tutte le variabili di sessione
-// A questo punto, $_SESSION['username'] non esiste più
+/* session_start();
+$_SESSION['username'] = 'Eden'; // La variabile esiste
+echo  $_SESSION['username'] . '<br>';
+session_unset(); // Libera tutte le variabili di sessione
 if (!isset($_SESSION['username'])) {
     echo 'La variabile di sessione è stata rimossa.';
 } */
 
 //* session_destroy()
-/* session_destroy(); // Distrugge la sessione
-// Anche se la sessione è stata distrutta, $_SESSION['username'] potrebbe esistere ancora
+/* session_start();
+$_SESSION['username'] = 'Oscar';
+echo $_SESSION['username'] . '<br>';
+session_destroy(); // Distrugge la sessione
 if (isset($_SESSION['username'])) {
-echo 'La sessione è stata distrutta, ma $_SESSION[\'username\'] esiste ancora fino a quando il browser non viene chiuso o il cookie di sessione non viene impostato a un valore vuoto.';
+    echo 'La sessione è stata distrutta, ma $_SESSION[\'username\'] esiste ancora.';
 } */
 ?>
