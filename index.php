@@ -49,7 +49,7 @@ echo '</pre><br>'; */
 
 
 //$ Recuperare variabili di sessione da un form
-session_start();
+/* session_start();
 echo 'ID sessione: ' . session_id() . '<br>';
 echo '<h4> Pagina corrente: ' . $_SERVER['PHP_SELF'] . '</h4>';
 if (isset($_POST['username'])) {
@@ -57,19 +57,16 @@ if (isset($_POST['username'])) {
     $_SESSION['password'] = $_POST['password'];
     echo '<p> Username di sessione: ' . $_SESSION['username'] . '</p>';
     echo '<p> Password di sessione: ' . $_SESSION['password'] . '</p>';
-}
+} */
 
 ?>
-
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>php-app-state</title>
 </head>
-
 <body>
     <form method="post" action=<?php echo $_SERVER['PHP_SELF'] ?>>
         <label for="username">Inserire username:</label>
@@ -79,46 +76,29 @@ if (isset($_POST['username'])) {
         <input type="submit">
     </form>
 </body>
-
-</html>
-
-<?php
-
-
-
-?>
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form method="post">
-        <label for="name">Inserisci il tuo nickname:</label>
-        <input id="name" name="nick_name" type="text">
-        <input type="submit">
-    </form>
-</body>
 </html> -->
 
+
+
+
+
 <?php
+
 //$ Stato di una sessione
 /* session_start();
 echo 'Percorso sessione: ' . session_save_path() . '<br>';
-echo 'ID sessione: ' . session_id() . '<br>'; */
-/* $sessionStatus = session_status();
-echo 'Status sessione: ' . $sessionStatus . '<br>';
+echo 'ID sessione: ' . session_id() . '<br>';
+$sessionStatus = session_status();
+echo 'Status sessione: ' . $sessionStatus . '<br>'; */
 
-if ($sessionStatus == PHP_SESSION_DISABLED) {
+/* if ($sessionStatus == PHP_SESSION_DISABLED) {
     echo 'Le sessioni sono disabilitate. <br>';
 } else if ($sessionStatus == PHP_SESSION_NONE) {
     echo 'Le sessioni sono abilitate, ma nessuna esiste. <br>';
 } else if ($sessionStatus == PHP_SESSION_ACTIVE) {
     echo 'Le sessioni sono abilitate e una esiste. <br>';
 } */
-/* if ($sessionStatus === 0) {
+/*  if ($sessionStatus === 0) {
     echo 'Le sessioni sono disabilitate.';
 } else if ($sessionStatus === 1) {
     echo 'Le sessioni sono abilitate, ma nessuna esiste.';
@@ -128,12 +108,14 @@ if ($sessionStatus == PHP_SESSION_DISABLED) {
 
 
 //$ Salvare le sessioni altrove
-
-/* $sessionPath = $_SERVER['DOCUMENT_ROOT'] . '/Sessions';
+$sessionPath = $_SERVER['DOCUMENT_ROOT'] . '/Sessions';
+if (!file_exists($sessionPath)) {
+    mkdir($sessionPath, 0700);
+}
 session_save_path($sessionPath);
-echo '<b>Nuovo percorso sessione: </b> ' . session_save_path() . '<br>';
 session_start();
-echo '<b>ID sessione: </b>' . session_id() . '<br>'; */
+echo '<b>Nuovo percorso sessione: </b> ' . session_save_path() . '<br>';
+echo '<b>ID sessione: </b>' . session_id() . '<br>';
 
 
 
