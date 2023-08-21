@@ -13,13 +13,11 @@ echo '</pre><br>'; */
 $value = "Matteo Russo";
 $expire = time() + 10; // 10s
 $path = "/";
-$domain = ".example.com";
-$secure = true;
+$domain = "localhost";
+$secure = false;
 $httpOnly = true;
 setcookie($name, $value, $expire, $path, $domain, $secure, $httpOnly);
-echo '<pre>';
-print_r($_COOKIE);
-echo '</pre><br>'; */
+echo '<pre>'; print_r($_COOKIE); echo '</pre><br>'; */
 
 
 //$ Scadenza dei cookies
@@ -50,8 +48,6 @@ echo '</pre><br>'; */
 
 //$ Recuperare variabili di sessione da un form
 /* session_start();
-echo 'ID sessione: ' . session_id() . '<br>';
-echo '<h4> Pagina corrente: ' . $_SERVER['PHP_SELF'] . '</h4>';
 if (isset($_POST['username'])) {
     $_SESSION['username'] = $_POST['username'];
     $_SESSION['password'] = $_POST['password'];
@@ -76,14 +72,13 @@ if (isset($_POST['username'])) {
         <input type="submit">
     </form>
 </body>
-</html> -->
-
+</html>
+ -->
 
 
 
 
 <?php
-
 //$ Stato di una sessione
 /* session_start();
 echo 'Percorso sessione: ' . session_save_path() . '<br>';
