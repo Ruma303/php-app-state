@@ -43,8 +43,8 @@ echo '</pre>'; */
 /* unset($_SESSION['password']);
 echo '<pre>';
 print_r($_SESSION);
-echo '</pre><br>'; */
-
+echo '</pre><br>';
+ */
 
 //$ Recuperare variabili di sessione da un form
 /* session_start();
@@ -72,8 +72,8 @@ if (isset($_POST['username'])) {
         <input type="submit">
     </form>
 </body>
-</html>
- -->
+</html> -->
+
 
 
 
