@@ -76,16 +76,14 @@ if (isset($_POST['username'])) {
 
 
 
-
-
 <?php
 //$ Stato di una sessione
 /* session_start();
 echo 'Percorso sessione: ' . session_save_path() . '<br>';
 echo 'ID sessione: ' . session_id() . '<br>';
 $sessionStatus = session_status();
-echo 'Status sessione: ' . $sessionStatus . '<br>'; */
-
+echo 'Status sessione: ' . $sessionStatus . '<br>';
+ */
 /* if ($sessionStatus == PHP_SESSION_DISABLED) {
     echo 'Le sessioni sono disabilitate. <br>';
 } else if ($sessionStatus == PHP_SESSION_NONE) {
@@ -117,15 +115,15 @@ echo '<b>ID sessione: </b>' . session_id() . '<br>'; */
 //$ Terminare le sessioni
 
 //* session_abort()
-/* session_start();
-$_SESSION['username'] = 'Ruma';
-echo  $_SESSION['username'] . '<br>';
-echo session_status() . ' ';
+   /*  session_start();
+    $_SESSION['username'] = 'Ruma';
+    echo  $_SESSION['username'] . '<br>';
+    echo 'Status sessione: ' . session_status() . '<br>';
 
-session_abort();
-echo session_status() . ' ';
-echo $_SESSION['username'];
- */
+    session_abort();
+    echo 'Status sessione: ' . session_status() . '<br>';
+    echo $_SESSION['username'] . '<br>'; */
+
 
 //* session_commit()
 /* session_start();
@@ -156,6 +154,8 @@ echo  $_SESSION['username'] . '<br>';
 session_unset(); // Libera tutte le variabili di sessione
 if (!isset($_SESSION['username'])) {
     echo 'La variabile di sessione è stata rimossa.';
+} else {
+    echo "La variabile esiste";
 } */
 
 //* session_destroy()
@@ -164,6 +164,7 @@ $_SESSION['username'] = 'Oscar';
 echo $_SESSION['username'] . '<br>';
 session_destroy(); // Distrugge la sessione
 if (isset($_SESSION['username'])) {
-    echo 'La sessione è stata distrutta, ma $_SESSION[\'username\'] esiste ancora.';
-} */
-?>
+    echo 'La sessione è stata distrutta, ma $_SESSION[\'username\']: '
+    . $_SESSION['username'] . ' esiste ancora.';
+}
+?> */
