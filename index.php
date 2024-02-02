@@ -1,14 +1,14 @@
 <?php
 //% Cookies
 
-//$ Cookies in PHP
+//, Cookies in PHP
 //setcookie("nick_name", "Utente 1");
 /* echo '<pre>';
 print_r($_COOKIE);
 echo '</pre><br>'; */
 
 
-//$ Parametri dei cookies
+//, Parametri dei cookies
 /* $name = "user";
 $value = "Matteo Russo";
 $expire = time() + 10; // 10s
@@ -16,39 +16,42 @@ $path = "/";
 $domain = "localhost";
 $secure = false;
 $httpOnly = true;
+
 setcookie($name, $value, $expire, $path, $domain, $secure, $httpOnly);
 echo '<pre>'; print_r($_COOKIE); echo '</pre><br>'; */
 
 
-//$ Scadenza dei cookies
-/* setcookie("theme", "dark", time()+60*60*24*30);
+//, Scadenza dei cookies
+/* setcookie("theme", "dark", time() + 60*60*24*30);
 echo '<pre>';
 print_r($_COOKIE);
-echo $_COOKIE[2];
-echo '</pre><br>'; */
+echo '</pre><br>';
+echo $_COOKIE['theme']; */
 
 
 
 //% Sessioni
 
-//$ Iniziare una Sessione in PHP
-/* session_start();
-$_SESSION['username'] = 'Matteo';
+//, Iniziare una Sessione in PHP
+//session_start();
+/* $_SESSION['username'] = 'Matteo';
 $_SESSION['password'] ='password';
 echo '<pre>';
 print_r($_SESSION);
 echo '</pre>'; */
 
-//$ Rimuovere dati dalle sessioni
+
+//, Rimuovere dati dalle sessioni
 /* unset($_SESSION['password']);
 echo '<pre>';
 print_r($_SESSION);
-echo '</pre><br>';
- */
+echo '</pre><br>'; */
 
-//$ Recuperare variabili di sessione da un form
+
+//, Recuperare variabili di sessione da un form
 /* session_start();
-if (isset($_POST['username'])) {
+
+if (isset($_POST['username']) && isset($_POST['password'])) {
     $_SESSION['username'] = $_POST['username'];
     $_SESSION['password'] = $_POST['password'];
     echo '<p> Username di sessione: ' . $_SESSION['username'] . '</p>';
@@ -75,15 +78,14 @@ if (isset($_POST['username'])) {
 </html> -->
 
 
-
 <?php
-//$ Stato di una sessione
+//, Stato di una sessione
 /* session_start();
 echo 'Percorso sessione: ' . session_save_path() . '<br>';
 echo 'ID sessione: ' . session_id() . '<br>';
 $sessionStatus = session_status();
-echo 'Status sessione: ' . $sessionStatus . '<br>';
- */
+echo 'Status sessione: ' . $sessionStatus . '<br>'; */
+
 /* if ($sessionStatus == PHP_SESSION_DISABLED) {
     echo 'Le sessioni sono disabilitate. <br>';
 } else if ($sessionStatus == PHP_SESSION_NONE) {
@@ -91,16 +93,17 @@ echo 'Status sessione: ' . $sessionStatus . '<br>';
 } else if ($sessionStatus == PHP_SESSION_ACTIVE) {
     echo 'Le sessioni sono abilitate e una esiste. <br>';
 } */
-/*  if ($sessionStatus === 0) {
+
+/* if ($sessionStatus === 0) {
     echo 'Le sessioni sono disabilitate.';
 } else if ($sessionStatus === 1) {
     echo 'Le sessioni sono abilitate, ma nessuna esiste.';
 } else if ($sessionStatus === 2) {
     echo 'Le sessioni sono abilitate e una esiste.';
-} */
+}
+ */
 
-
-//$ Salvare le sessioni altrove
+//, Salvare le sessioni altrove
 /* $sessionPath = $_SERVER['DOCUMENT_ROOT'] . '/Sessions';
 if (!file_exists($sessionPath)) {
     mkdir($sessionPath, 0700);
@@ -112,17 +115,16 @@ echo '<b>ID sessione: </b>' . session_id() . '<br>'; */
 
 
 
-//$ Terminare le sessioni
-
+//, Terminare le sessioni
 //* session_abort()
-   /*  session_start();
-    $_SESSION['username'] = 'Ruma';
-    echo  $_SESSION['username'] . '<br>';
-    echo 'Status sessione: ' . session_status() . '<br>';
+/* session_start();
+$_SESSION['username'] = 'Ruma';
+echo  $_SESSION['username'] . '<br>';
+echo 'Status sessione: ' . session_status() . '<br>';
 
-    session_abort();
-    echo 'Status sessione: ' . session_status() . '<br>';
-    echo $_SESSION['username'] . '<br>'; */
+session_abort();
+echo 'Status sessione: ' . session_status() . '<br>';
+echo $_SESSION['username'] . '<br>'; */
 
 
 //* session_commit()
@@ -143,8 +145,8 @@ echo "<br>Username after session_commit(): " . $_SESSION['username'] . "<br><br>
 /* session_start();
 echo "Session status after session_start(): ";
 echo session_status() == PHP_SESSION_ACTIVE ? 'Active' : (session_status() == PHP_SESSION_NONE ? 'None' : 'Disabled');
-echo "<br>Username after session_start(): " . $_SESSION['username'] . "<br><br>"; */
-
+echo "<br>Username after session_start(): " . $_SESSION['username'] . "<br><br>";
+ */
 
 
 //* session_unset()
@@ -156,7 +158,10 @@ if (!isset($_SESSION['username'])) {
     echo 'La variabile di sessione è stata rimossa.';
 } else {
     echo "La variabile esiste";
-} */
+}
+
+echo session_status() == PHP_SESSION_ACTIVE ? 'Active' : (session_status() == PHP_SESSION_NONE ? 'None' : 'Disabled'); */
+
 
 //* session_destroy()
 /* session_start();
